@@ -1,8 +1,13 @@
 import PropTypes from "prop-types"
 function App(props) {
+  let max =0;
   // let sum = 0;
   // let si = (props.data[0] * props.data[1] * props.data[2])/100
   // let newData = props.data.filter((n)=>n<90)
+  props.data.forEach((n)=>{
+    if(n>max) max = n
+  })
+
 
   return (
 
@@ -22,6 +27,8 @@ function App(props) {
     {props.pass}
     {String(props.isMarried)}
     {props.children} */}
+
+    <h1>{max}</h1>
     
     </>
   )
@@ -31,6 +38,12 @@ App.PropTypes = {
   pass: PropTypes.string,
   isMarried: PropTypes.bool,
   children: PropTypes.node,
+}
+
+App.defaultProps = {
+  name: 'default name',
+  pass: 'default pass',
+  isMarried: false,
 }
 export default App
 
